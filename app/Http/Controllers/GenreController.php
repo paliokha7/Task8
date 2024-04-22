@@ -14,7 +14,8 @@ class GenreController extends Controller
 
     public function show($id)
     {
-        $genre = Genre::with('movies')->findOrFail($id);
-        return view('genres.show', compact('genre'));
+        $genre = Genre::findOrFail($id);
+        $movies = $genre->movies; // Отримати всі фільми для цього жанру
+        return view('genres.show', compact('genre', 'movies'));
     }
 }

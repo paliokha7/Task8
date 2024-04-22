@@ -9,10 +9,16 @@
     <h1>{{ $movie->title }}</h1>
     <p>Description: {{ $movie->description }}</p>
 
-    <h2>Genres:</h2>
+    <h2>Genre:</h2>
     <ul>
         @foreach($movie->genres as $genre)
-            <li>{{ $genre->name }}</li>
+        <li><a href="{{ route('genres.show', $genre->id) }}">{{ $genre->name }}</a></li>
+        @endforeach
+    </ul>
+    <h2>Actors:</h2>
+    <ul>
+        @foreach($actors as $actor)
+            <li>{{ $actor->name }}</li>
         @endforeach
     </ul>
 </body>

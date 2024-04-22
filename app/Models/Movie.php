@@ -11,13 +11,9 @@ class Movie extends Model
         return $this->belongsToMany(Genre::class);
     }
 
-    public function addGenre($genreId)
-{
-    $this->genres()->attach($genreId);
-}
-
-public function removeGenre($genreId)
-{
-    $this->genres()->detach($genreId);
-}
+    public function actors()
+    {
+        return $this->hasMany(Actor::class);
+    }
+    
 }
